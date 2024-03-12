@@ -66,7 +66,15 @@ function cambiarNivel(){
         nivelActual=4;
     }
     else if ((nivelActual==6) && (entrada==0)){
-        //Pelea
+        calcularMagia();
+        let poderEnemigo=Math.floor(Math.random() * 12);
+        let textoBatalla="Encuentras un fantasma con "+poderEnemigo+" de poder, tú tienes "+magia;
+        if (poderEnemigo>magia){
+            textoBatalla=textoBatalla+"<br>El fantasma te expulsa de la casa.";
+        }
+        else{
+            textoBatalla=textoBatalla+"<br>Con tus herramientas haces que el fantasma salga de la casa.";
+        }
     }
     else if ((nivelActual==6) && (entrada==1)){
         //Redireccionar a fin
