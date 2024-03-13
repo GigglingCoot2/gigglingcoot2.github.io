@@ -51,7 +51,7 @@ function mostrarNivel(){
 
 function cambiarNivel(){
     if ((nivelActual==2) && (entrada==0)){
-        indiceHerramientaEncontrada= Math.floor(Math.random() * 5);
+        indiceHerramientaEncontrada= Math.floor(Math.random() * 4);
         document.getElementById("textoOpcional").innerHTML="En los cajones encuentras "+String(herramientas[indiceHerramientaEncontrada])+". Se ha agregado a tu inventario.";
         inventario.push(String(herramientas[indiceHerramientaEncontrada]));
     }
