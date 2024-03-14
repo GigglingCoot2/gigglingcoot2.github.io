@@ -57,28 +57,30 @@ function mostrarNivel(){
             document.getElementById("boton1").innerHTML=String(opciones[9]);
             break;
         case 7:
-            document.getElementById("boton1").style.display = 'none';
             if ((inventario.length)!=0){
                 document.getElementById("textoPrincipal").innerHTML="FIN";
             document.getElementById("textoOpcional").innerHTML="Gracias a los objetos mágicos que encontraste en el camino pudiste expulsar a los fantasmas que encantaban la casa.";
             document.getElementById("img").src="fondoFantasmaClasico.png";
             document.getElementById("boton0").innerHTML="VICTORIA";
-            document.getElementById("VICTORIA").innerHTML="VICTORIA";
-            document.getElementById("VICTORIA").addEventListener("click", function() {
-                window.location.href = "index.html";
-            });
+            document.getElementById("boton1").style.display = 'none';
             }
+            
             else{
                 document.getElementById("textoPrincipal").innerHTML="ARMARIO";
             document.getElementById("textoOpcional").innerHTML="La energía de los espíritus fue demasiado fuerte. Te han expulsado de la casa y la han cerrado para siempre.";
             document.getElementById("img").src="fondoFantasma.png";
-            document.getElementById("boton0").innerHTML="Derrota";
+            document.getElementById("boton0").style.display = 'none';
+            document.getElementById("boton1").innerHTML="Derrota";
             document.getElementById("Derrota").innerHTML="Derrota";
-            document.getElementById("Derrota").addEventListener("click", function() {
-                window.location.href = "index.html";
-            });
-            }
-            ;
+        }
+        break;
+        case 8:
+            document.getElementById("textoPrincipal").innerHTML="CADENA RESULTANTE";
+            document.getElementById("textoOpcional").innerHTML=cadenaResultante+" es una cadena válida";
+            document.getElementById("img").src="";
+            document.getElementById("boton0").style.display = 'none';
+            document.getElementById("boton1").style.display = 'none';
+        break;
     }
     document.getElementById("inventario").innerHTML=("Inventario: "+inventario);
 }
@@ -123,6 +125,9 @@ function cambiarNivel(){
     }
     else if ((nivelActual==5) && (entrada==1)){
         nivelActual=6;
+    }
+    else if ((nivelActual==7)){
+        nivelActual=8;
     }
     console.log("Estado "+entrada+" y nivel "+nivelActual);
     entrada=2;
