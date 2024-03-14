@@ -11,8 +11,6 @@ let entrada=999;
 
 let indiceHerramientaEncontrada;
 
-let magia=10;
-
 function mostrarNivel(){
     switch (nivelActual){
         case 1:
@@ -78,6 +76,7 @@ function mostrarNivel(){
             document.getElementById("textoPrincipal").innerHTML="CADENA RESULTANTE";
             document.getElementById("textoOpcional").innerHTML=cadenaResultante+" es una cadena válida";
             document.getElementById("img").src="";
+            document.getElementById("inventario").style.display = 'none';
             document.getElementById("boton0").style.display = 'none';
             document.getElementById("boton1").style.display = 'none';
         break;
@@ -144,25 +143,6 @@ function entrada1(){
     entrada=1;
     cadenaResultante.push(1);
     cambiarNivel();
-}
-
-function calcularMagia(){
-    for (let elemento in inventario){
-        switch (inventario[elemento]){
-            case "Necronomicón":
-                magia=(magia+5);
-                break;
-            case "Guía del Mundo Espiritual":
-                magia=(magia+3);
-                break;
-            case "Agua Bendita":
-                magia=(magia+10);
-                break;
-            case "Tela de araña":
-                magia=(magia+1);
-                break;
-        }
-    }
 }
 
 
