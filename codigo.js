@@ -64,6 +64,9 @@ function mostrarNivel(){
             document.getElementById("img").src="fondoFantasmaClasico.png";
             document.getElementById("boton0").innerHTML="VICTORIA";
             document.getElementById("VICTORIA").innerHTML="VICTORIA";
+            document.getElementById("VICTORIA").addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
             }
             else{
                 document.getElementById("textoPrincipal").innerHTML="ARMARIO";
@@ -71,6 +74,9 @@ function mostrarNivel(){
             document.getElementById("img").src="fondoFantasma.png";
             document.getElementById("boton0").innerHTML="Derrota";
             document.getElementById("Derrota").innerHTML="Derrota";
+            document.getElementById("Derrota").addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
             }
             ;
     }
