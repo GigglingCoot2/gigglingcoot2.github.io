@@ -1,6 +1,6 @@
 let cadenaResultante=[];
 const textos=["Sala de recepción","Pasillo","Cocina","Escalera","Habitación principal","Armario", "FIN"];
-const opciones=["Ir al PASILLO", "Ir a la COCINA", "Buscar en los cajones", "Ir a SALA DE RECEPCIÓN", "Ir a ESCALERA","Buscar en el cofre", "Ir al PASILLO", "Ir a la HABITACIÓN PRINCIPAL","Abrir el ARMARIO","Combatir","FIN"];
+const opciones=["Ir al PASILLO", "Ir a la COCINA", "Buscar en los cajones", "Ir a SALA DE RECEPCIÓN", "Ir a ESCALERA","Buscar en el cofre", "Ir al PASILLO", "Ir a la HABITACIÓN PRINCIPAL","Ir a ESCALERA","Combatir","FIN"];
 const herramientas=["Necronomicón", "Guía del Mundo Espiritual", "Agua Bendita", "Tela de araña"];
 
 let inventario=[];
@@ -43,8 +43,7 @@ function mostrarNivel(){
             break;
         case 6:
             document.getElementById("textoPrincipal").innerHTML=String(textos[5]);
-            document.getElementById("boton0").innerHTML=String(opciones[10]);
-            document.getElementById("boton1").innerHTML=String(opciones[11]);
+            document.getElementById("boton0").innerHTML=String(opciones[11]);
             break;
     }
 }
@@ -65,19 +64,18 @@ function cambiarNivel(){
     else if((nivelActual==3) && (entrada==0)){
         nivelActual=4;
     }
-    else if ((nivelActual==6) && (entrada==0)){
-        calcularMagia();
-        let poderEnemigo=Math.floor(Math.random() * 12);
-        let textoBatalla="Encuentras un fantasma con "+poderEnemigo+" de poder, tú tienes "+magia;
-        if (poderEnemigo>magia){
-            textoBatalla=textoBatalla+"<br>El fantasma te expulsa de la casa.";
-        }
-        else{
-            textoBatalla=textoBatalla+"<br>Con tus herramientas haces que el fantasma salga de la casa.";
-        }
+    else if ((nivelActual == 6) && (entrada == 0)) {
+        nivelActual=3;
     }
     else if ((nivelActual==6) && (entrada==1)){
-        //Redireccionar a fin
+        calcularMagia();
+        let poderEnemigo = Math.floor(Math.random() * 12);
+        let textoBatalla = "Encuentras un fantasma con " + poderEnemigo + " de poder, tú tienes " + magia;
+        if (poderEnemigo > magia) {
+            textoBatalla = textoBatalla + "El fantasma te expulsa de la casa.";
+        } else {
+            textoBatalla = textoBatalla + "Con tus herramientas haces que el fantasma salga de la casa.";
+        }
     }
     else if ((nivelActual==1) && (entrada==0)){
         nivelActual=2;
