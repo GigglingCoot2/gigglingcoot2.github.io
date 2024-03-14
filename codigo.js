@@ -66,7 +66,12 @@ function cambiarNivel(){
         nivelActual=4;
     }
     else if ((nivelActual == 6) && (entrada == 0)) {
-        nivelActual=2;
+        //Agregar el texto FIN. Eliminar botones. Mostrar cadena.
+        document.getElementById("textoPrincipal").innerHTML("FIN");
+        document.getElementById("textoOpcional").innerHTML("La cadena resultante es "+cadenaResultante);
+        document.getElementById("boton0").style.display = 'none';
+        document.getElementById("boton1").style.display = 'none';
+
     }
     else if ((nivelActual==6) && (entrada==1)){
         /*calcularMagia();
