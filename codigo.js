@@ -44,6 +44,7 @@ function mostrarNivel(){
         case 6:
             document.getElementById("textoPrincipal").innerHTML=String(textos[5]);
             document.getElementById("boton0").innerHTML=String(opciones[11]);
+            document.getElementById("boton1").style.display = 'none';
             break;
     }
 }
@@ -65,10 +66,10 @@ function cambiarNivel(){
         nivelActual=4;
     }
     else if ((nivelActual == 6) && (entrada == 0)) {
-        nivelActual=3;
+        nivelActual=2;
     }
     else if ((nivelActual==6) && (entrada==1)){
-        calcularMagia();
+        /*calcularMagia();
         let poderEnemigo = Math.floor(Math.random() * 12);
         let textoBatalla = "Encuentras un fantasma con " + poderEnemigo + " de poder, tú tienes " + magia;
         if (poderEnemigo > magia) {
@@ -76,7 +77,8 @@ function cambiarNivel(){
         } else {
             textoBatalla = textoBatalla + "Con tus herramientas haces que el fantasma salga de la casa.";
         }
-    }
+    }*/
+    nivelActual=1;}
     else if ((nivelActual==1) && (entrada==0)){
         nivelActual=2;
     }
