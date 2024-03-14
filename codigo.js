@@ -80,7 +80,6 @@ function mostrarNivel(){
             document.getElementById("img").src="";
             document.getElementById("boton0").style.display = 'none';
             document.getElementById("boton1").style.display = 'none';
-            document.getElementById("inventario").style.display = 'none';
         break;
     }
     document.getElementById("inventario").innerHTML=("Inventario: "+inventario);
