@@ -47,6 +47,7 @@ function mostrarNivel(){
             document.getElementById("boton1").style.display = 'none';
             break;
     }
+    document.getElementById("inventario").innerHTML=("Inventario: "+inventario);
 }
 
 function cambiarNivel(){
@@ -59,6 +60,7 @@ function cambiarNivel(){
         nivelActual=1;
     }
     else if ((nivelActual==3) && (entrada==1)){
+        indiceHerramientaEncontrada= Math.floor(Math.random() * 4);
         document.getElementById("textoOpcional").innerHTML="En el cofre encuentras una llave y algunas fotos viejas, aparentemente del dueño anterior. La llave se ha agregado a tu inventario.";
         inventario.push(String(herramientas[indiceHerramientaEncontrada]));
     }
@@ -67,23 +69,15 @@ function cambiarNivel(){
     }
     else if ((nivelActual == 6) && (entrada == 0)) {
         //Agregar el texto FIN. Eliminar botones. Mostrar cadena.
-        document.getElementById("textoPrincipal").innerHTML=("FIN");
+        document.getElementById("textoPrincipal").innerHTML=String(textos[6]);
         document.getElementById("textoOpcional").innerHTML=("La cadena resultante es "+cadenaResultante);
         document.getElementById("boton0").style.display = 'none';
         document.getElementById("boton1").style.display = 'none';
 
     }
     else if ((nivelActual==6) && (entrada==1)){
-        /*calcularMagia();
-        let poderEnemigo = Math.floor(Math.random() * 12);
-        let textoBatalla = "Encuentras un fantasma con " + poderEnemigo + " de poder, tú tienes " + magia;
-        if (poderEnemigo > magia) {
-            textoBatalla = textoBatalla + "El fantasma te expulsa de la casa.";
-        } else {
-            textoBatalla = textoBatalla + "Con tus herramientas haces que el fantasma salga de la casa.";
-        }
-    }*/
-    nivelActual=1;}
+        if ((inventario.lengt())!=0){}
+    }
     else if ((nivelActual==1) && (entrada==0)){
         nivelActual=2;
     }
