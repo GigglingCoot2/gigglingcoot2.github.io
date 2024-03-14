@@ -43,7 +43,7 @@ function mostrarNivel(){
             break;
         case 6:
             document.getElementById("textoPrincipal").innerHTML=String(textos[5]);
-            document.getElementById("boton0").innerHTML=String(opciones[11]);
+            document.getElementById("boton0").innerHTML=String(opciones[10]);
             document.getElementById("boton1").style.display = 'none';
             break;
     }
