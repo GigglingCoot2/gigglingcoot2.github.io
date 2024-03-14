@@ -11,41 +11,68 @@ let entrada=999;
 
 let indiceHerramientaEncontrada;
 
-let magia=10
+let magia=10;
 
 function mostrarNivel(){
     switch (nivelActual){
         case 1:
             //Se mueve a cocina o escaleras
             document.getElementById("textoPrincipal").innerHTML=String(textos[0]);
+            document.getElementById("textoOpcional").innerHTML="Una sala decorada al estilo colonial. Tiene muebles con decorados grotescos y con acabados en piedras preciosas.";
+            document.getElementById("img").src="fondo.png";
             document.getElementById("boton0").innerHTML=String(opciones[0]);
             document.getElementById("boton1").innerHTML=String(opciones[1]);
             break;
         case 2:
             document.getElementById("textoPrincipal").innerHTML=String(textos[1]);
+            document.getElementById("textoOpcional").innerHTML="El pasillo es un corredor largo con las puertas tapeadas. Lo pueblan retratos de familiares muertos en momentos de solemnidad y gloria. Hay un pequeño mueble con varios cajones, es una de las pocas cosas accesibles a la vista.";
+            document.getElementById("img").src="fondoCajones.png";
             document.getElementById("boton0").innerHTML=String(opciones[2]);
             document.getElementById("boton1").innerHTML=String(opciones[3]);
             break;
         case 3:
             document.getElementById("textoPrincipal").innerHTML=String(textos[2]);
+            document.getElementById("textoOpcional").innerHTML="La cocina es amplia. Guarda todavía el buen gusto y la magnitud que la familia llegó a tener. Vacía de sirvientes y de comida fresca, parece un almacén abierto y desorganizado. Hay un cofre sin llave en el suelo.";
+            document.getElementById("img").src="fondoCofre.png";
             document.getElementById("boton0").innerHTML=String(opciones[4]);
             document.getElementById("boton1").innerHTML=String(opciones[5]);
             break;
         case 4:
             document.getElementById("textoPrincipal").innerHTML=String(textos[3]);
+            document.getElementById("textoOpcional").innerHTML="Una ostentosa escalera de caracol conecta las dos plantas.";
             document.getElementById("boton0").innerHTML=String(opciones[6]);
             document.getElementById("boton1").innerHTML=String(opciones[7]);
             break;
         case 5:
             document.getElementById("textoPrincipal").innerHTML=String(textos[4]);
+            document.getElementById("textoOpcional").innerHTML="La habitación principal está flanqueada por escenas religiosas pintadas casi a tamaño real. Una cama decorada de marfiles y cubierta de telas suaves parece haber sido abandonada mucho antes de la muerte del Señor Velazquez. También podemos ver en las repisas su afición por el arte con temas marítimos. Hay un armario al fondo que parece incluso más viejo que el resto de muebles de la propiedad, y también se encuentra en peor condición. En tu experiencia tratando casos similares, esto parece ser una ilusión.";
             document.getElementById("boton0").innerHTML=String(opciones[8]);
             document.getElementById("boton1").innerHTML=String(opciones[9]);
             break;
         case 6:
-            document.getElementById("textoPrincipal").innerHTML=String(textos[5]);
-            document.getElementById("boton0").innerHTML=String(opciones[10]);
-            document.getElementById("boton1").style.display = 'none';
+            document.getElementById("textoPrincipal").innerHTML="ARMARIO";
+            document.getElementById("textoOpcional").innerHTML="Abres el armario y te encuentras con dos fantasmas saliendo de golpe.";
+            document.getElementById("img").src="fondoFantasma.png";
+            document.getElementById("boton0").innerHTML=String(opciones[8]);
+            document.getElementById("boton1").innerHTML=String(opciones[9]);
             break;
+        case 7:
+            document.getElementById("boton1").style.display = 'none';
+            if ((inventario.length)!=0){
+                document.getElementById("textoPrincipal").innerHTML="FIN";
+            document.getElementById("textoOpcional").innerHTML="Gracias a los objetos mágicos que encontraste en el camino pudiste expulsar a los fantasmas que encantaban la casa.";
+            document.getElementById("img").src="fondoFantasmaClasico.png";
+            document.getElementById("boton0").innerHTML="VICTORIA";
+            document.getElementById("VICTORIA").innerHTML="VICTORIA";
+            }
+            else{
+                document.getElementById("textoPrincipal").innerHTML="ARMARIO";
+            document.getElementById("textoOpcional").innerHTML="La energía de los espíritus fue demasiado fuerte. Te han expulsado de la casa y la han cerrado para siempre.";
+            document.getElementById("img").src="fondoFantasma.png";
+            document.getElementById("boton0").innerHTML="Derrota";
+            document.getElementById("Derrota").innerHTML="Derrota";
+            }
+            ;
     }
     document.getElementById("inventario").innerHTML=("Inventario: "+inventario);
 }
@@ -54,6 +81,7 @@ function cambiarNivel(){
     if ((nivelActual==2) && (entrada==0)){
         indiceHerramientaEncontrada= Math.floor(Math.random() * 4);
         document.getElementById("textoOpcional").innerHTML="En los cajones encuentras "+String(herramientas[indiceHerramientaEncontrada])+". Se ha agregado a tu inventario.";
+        document.getElementById("img").src="fondoCofreLlave.png";
         inventario.push(String(herramientas[indiceHerramientaEncontrada]));
     }
     else if((nivelActual==2) && (entrada==1)){
@@ -67,16 +95,10 @@ function cambiarNivel(){
     else if((nivelActual==3) && (entrada==0)){
         nivelActual=4;
     }
-    else if ((nivelActual == 6) && (entrada == 0)) {
-        //Agregar el texto FIN. Eliminar botones. Mostrar cadena.
-        document.getElementById("textoPrincipal").innerHTML=String(textos[6]);
-        document.getElementById("textoOpcional").innerHTML=("La cadena resultante es "+cadenaResultante);
-        document.getElementById("boton0").style.display = 'none';
-        document.getElementById("boton1").style.display = 'none';
-
-    }
+    
+        
     else if ((nivelActual==6) && (entrada==1)){
-        if ((inventario.lengt())!=0){}
+        nivelActual=7;
     }
     else if ((nivelActual==1) && (entrada==0)){
         nivelActual=2;
